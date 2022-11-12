@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-rtl.css" type="text/css">
+    <link rel="stylesheet" href="css/hover-min.css" type="text/css">
+    <link rel="stylesheet" href="css/all.min.css" type="text/css">
+    <link rel="stylesheet" href="css/slick.css" type="text/css">
+    <link rel="stylesheet" href="css/swiper.css" type="text/css">
+    <link rel="stylesheet" href="css/slick-theme.css" type="text/css">
+
+    <title>پنل کاربری</title>
+</head>
+<body class="bg-light">
+<style>
+    @font-face {
+        font-family: "iransans";
+        src: url("font/IRANSansWeb_Medium.eot");
+        src: url("font/IRANSansWeb_Medium.woff") format("woff");
+
+    }
+    .iransans{
+        font-family: IRANSans;
+    }
+</style>
+<header>
+ <div class="header-top bg_nav ">
+   <div class="container-fluid">
+    <div class="row align-items-center">
+        <div class="col-12 col-lg-3 text-center text-lg-right">
+            <a href="#">
+                <img src="img/155%20-%20Copy%20(3).jpg" class="img-fluid">
+            </a>
+        </div>
+        <div class="col-12 col-lg-9 justify-content-lg-end d-flex register text-center iransans "  >
+            <a href="#" class="ml-5" >
+                <i class="fa fa-user align-middle" aria-hidden="true"></i>
+               ورود/ثبت نام کاربران
+            </a>
+            <a href="#"  class="ml-5">
+                <i class="fas fa-sign-in-alt align-middle" aria-hidden="true"></i>
+                ورود/ثبت نام مشاوران املاک
+            </a>
+            <a class=" px-3 text-white " href="#" >
+                <i class="fa fa-plus align-middle" aria-hidden="true"></i>
+                ثبت آگهی رایگان
+
+            </a>
+
+        </div>
+    </div>
+
+    </div>
+
+ </div>
+    <div class="header-bottom bg-white">
+        <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-top">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse justify-content-center iransans" id="navbar-top">
+                    <ul class="navbar-nav text-center pr-0 navbar-top">
+                        <li class="nav-item ml-1"> <a href="#" class="nav-link px-3"> صفحه اصلی </a> </li>
+                        <li class="nav-item ml-1"> <a href="#" class="nav-link px-3"> اخبارمقالات </a> </li>
+                        <li class="nav-item ml-1"> <a href="#" class="nav-link px-3"> سوالات متداول </a> </li>
+                        <li class="nav-item ml-1"> <a href="#" class="nav-link px-3"> درباره ما </a> </li>
+                        <li class="nav-item ml-1"> <a href="#" class="nav-link px-3"> تماس با ما </a> </li>
+                        <li class="nav-item ml-1"> <a href="#" class="nav-link px-3"> مشاوران املاک </a> </li>
+
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<main style="margin-top: 230px">
+<div class="container my-3">
+    <div class="row">
+        <div class="col-12 col-lg-3 iransans">
+            <div class="card border-0 mb-4 profile">
+                <div class="card-body text-center ">
+                    <img src="img/Group 1143.png" class="img-fluid mx-auto d-block" >
+                   <small class="d-block mt-3">امین پوربابایی</small>
+                </div>
+               <div class="card-footer text-center d-flex justify-content-between align-items-center border-0 shadow-none py-3">
+                   <a href="#"  class="border-left px-2 font-sm">تغییر رمز عبور</a>
+                   <a href="#" class="font-sm"  style="margin-left: 30px " > خروج از حساب</a>
+
+               </div>
+            </div>
+            <div class="card border-0 profile-side">
+                <div class="card-header bg-transparent  pt-0">
+                    <p class="mb-0 px-2 py-1 font-sm">دسترسی های کاربری </p>
+
+                </div>
+                 <div class="card-body px-8">
+                     <ul class="nav flex-column pr-0">
+                         <li class="nav-item mb-2">
+                             <a href="#profile " class="nav-link active font-sm active" data-toggle="tab">
+                                 <i class="fa fa-user-circle font-md align-middle" aria-hidden="true"></i>
+
+                                 پروفایل کاربری
+
+                             </a>
+                         </li>
+                         <li class="nav-item mb-2">
+                             <a href="#agahiman " class="nav-link  font-sm " data-toggle="tab">
+                                 <i class="fa fa-eye font-md align-middle" aria-hidden="true"></i>
+
+                                آگهی های من
+
+                             </a>
+                         </li>
+                         <li class="nav-item mb-2">
+                             <a href="#agahi_mordealaghe " class="nav-link  font-sm " data-toggle="tab">
+                                 <i class="fa fa-heart font-md align-middle" aria-hidden="true"></i>
+
+                                آگهی ها مورد علاقه ام
+
+                             </a>
+                         </li>
+                         <li class="nav-item mb-2">
+                             <a href="#etelate_shakhsi " class="nav-link font-sm " data-toggle="tab">
+                                 <i class="fa fa-address-card font-md align-middle" aria-hidden="true"></i>
+
+                                 اطلاعات شخصی
+                             </a>
+                         </li>
+                     </ul>
+
+                 </div>
+            </div>
+
+        </div>
+        <div class="col-12 col-lg-9 py-4">
+            <div class="tab-content">
+                <div class="tab-pane fade show active  " id="profile">
+                    <div class="row">
+                        <div class="col-12 col-lg-9">
+                            <div class="card border-0 profile-side ">
+                                <div class="card-header bg-transparent border-0 pt-0">
+                                    <p class="mb-0 px-2 py-1 font-sm">اطلاعات شخصی</p>
+
+                                </div>
+                                <div class="card-body">
+                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3 user-info">
+                                        <div>
+                                            <p class="font-sm">نام و نام خانوادگی:</p>
+                                            <p class="font-md">امین پوربابایی</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-sm">آدرس ایمیل:</p>
+                                            <p class="font-md">amintkd031@gmail.com</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-sm">شماره تلفن همراه:</p>
+                                            <p class="font-md">09131234567</p>
+                                        </div>
+
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3 user-info">
+                                        <div>
+                                            <p class="font-sm" >حساب تایید شده</p>
+                                            <p class="font-md">مرد  </p>
+                                        </div>
+                                        <div>
+                                            <p class="font-sm">تاریخ عضویت :</p>
+                                            <p class="font-md">1 تیر 1401</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-sm">تاریخ آخرین ورود :</p>
+                                            <p class="font-md">16 تیر 1401 </p>
+                                        </div>
+
+                                    </div>
+                                    <!-- <div class="d-flex justify-content-between align-items-center  user-info">
+                                        <div>
+                                            <p class="font-sm">دریافت خبر نامه :</p>
+                                            <p class="font-md">بله </p>
+                                        </div>
+                                        <div>
+                                            <p class="font-sm">دریافت پیامک:</p>
+                                            <p class="font-md">خیر</p>
+                                        </div>
+                                        <div>
+                                            <p class="font-sm">دریافت نوتیفکشن:</p>
+                                            <p class="font-md">بله </p>
+                                        </div>
+
+                                    </div> -->
+
+                                </div>
+                                <div class="card-footer border-0 py-3  text-center info-user-footer">
+                                    <a href="#" class="font-md" >ویرایش اطلاعات شخصی</a>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="tab-pane fade " id="agahiman">
+                    <div class="card border-0 agahiman">
+                        <div class="card-header bg-transparent pt-0">
+                         <p class="mb-0 px-2 py-1 font-md">آگهی های من</p>
+                        </div>
+                        <div class="card-body">
+                            <table class="table table-borderless table-striped text-center table-responsive-md">
+                              <thead>
+                              <tr class="font-md">
+                                  <th> ردیف:</th>
+                                  <th> شماره آگهی:</th>
+                                  <th> تاریخ آگهی های بارگزاری شده:</th>
+                                  <th> وضعیت آگهی:</th>
+                                  <th> مبلغ کل :</th>
+                                  <th> عملیات پرداخت:</th>
+                                  <th> مشاهده آگهی:</th>
+                              </tr>
+                              </thead>
+                                <tbody>
+                                <tr class="" style="font-size: 12px">
+                                    <td>1</td>
+                                    <td>su-235489534</td>
+                                    <td>20تیر1401</td>
+                                    <td class="text-success">تایید</td>
+                                    <td>20هزارتومان</td>
+                                    <td class="text-success">پرداخت شده</td>
+                                    <td><a href="#">نمایش</a></td>
+                                </tr>
+                                <tr class="" style="font-size: 12px">
+                                    <td>2</td>
+                                    <td>su-235489534</td>
+                                    <td>20تیر1401</td>
+                                    <td class="text-warning">درحال بررسی</td>
+                                    <td>20هزارتومان</td>
+                                    <td class="text-success">پرداخت شده</td>
+                                    <td><a href="#">نمایش</a></td>
+                                </tr>
+                                <tr class="" style="font-size: 12px">
+                                    <td>3</td>
+                                    <td>su-235489534</td>
+                                    <td>20تیر1401</td>
+                                    <td class="text-danger">تایید نشد</td>
+                                    <td>20هزارتومان</td>
+                                    <td class="text-danger">پرداخت نشده</td>
+                                    <td><a href="#">نمایش</a></td>
+                                </tr>
+                                <tr class="" style="font-size: 12px">
+                                    <td>4</td>
+                                    <td>su-235489534</td>
+                                    <td>20تیر1401</td>
+                                    <td class="text-danger">  تایید نشد</td>
+                                    <td>20هزارتومان</td>
+                                    <td class="text-danger">پرداخت نشده</td>
+                                    <td><a href="#">نمایش</a></td>
+                                </tr>
+                                </tbody>
+
+                            </table>
+
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="tab-pane fade   " id="agahi_mordealaghe">
+                    <div class="card border-0 agahi_mordealaghe">
+                        <div class="card-header bg-transparent border-0 pt-0">
+                        <p class="mb-0 px-2 py-1 font-md">آگهی های مورد علاقه ام</p>
+                        </div>
+                        <div class="card-body">
+                            <a href="#">
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2 info-user2">
+                                     <div class="d-flex align-items-center">
+                                         <img src="img/shiraz2.jpg" alt="agahi_mordealaghe" class="img-fluid ml-lg-2" style="border-radius: 15px; width: 10em">
+                                         <div>
+                                             <small class="d-block text-center text-dark"> اصفهان</small>
+                                             <small class="d-block text-danger py-2">واحد 70 متری در شهرک ولیعصر اصفهان</small>
+                                             <small class="d-block text-success py-2">خریدوفروش خانه وآپارتمان </small>
+                                             <small class="d-block text-muted py-2"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                 سه راه سیمین خ جانبازان خ سعادت کازرونی
+                                             </small>
+                                         </div>
+
+                                     </div>
+                                    <div>
+                                        <a href="#" class="trash"><i class="fa fa-trash align-middle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2 info-user2">
+                                    <div class="d-flex align-items-center">
+                                        <img src="img/shiraz2.jpg" alt="agahi_mordealaghe" class="img-fluid ml-lg-2" style="border-radius: 15px; width: 10em">
+                                        <div>
+                                            <small class="d-block text-center text-dark"> اصفهان</small>
+                                            <small class="d-block text-danger py-2">واحد 70 متری در شهرک ولیعصر اصفهان</small>
+                                            <small class="d-block text-success py-2">خریدوفروش خانه وآپارتمان </small>
+                                            <small class="d-block text-muted py-2"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                سه راه سیمین خ جانبازان خ سعادت کازرونی
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <a href="#" class="trash"><i class="fa fa-trash align-middle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2 info-user2">
+                                    <div class="d-flex align-items-center">
+                                        <img src="img/shiraz2.jpg" alt="agahi_mordealaghe" class="img-fluid ml-lg-2" style="border-radius: 15px; width: 10em">
+                                        <div>
+                                            <small class="d-block text-center text-dark"> اصفهان</small>
+                                            <small class="d-block text-danger py-2">واحد 70 متری در شهرک ولیعصر اصفهان</small>
+                                            <small class="d-block text-success py-2">خریدوفروش خانه وآپارتمان </small>
+                                            <small class="d-block text-muted py-2"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                سه راه سیمین خ جانبازان خ سعادت کازرونی
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <a href="#" class="trash"><i class="fa fa-trash align-middle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2 info-user2">
+                                    <div class="d-flex align-items-center">
+                                        <img src="img/shiraz2.jpg" alt="agahi_mordealaghe" class="img-fluid ml-lg-2" style="border-radius: 15px; width: 10em">
+                                        <div>
+                                            <small class="d-block text-center text-dark"> اصفهان</small>
+                                            <small class="d-block text-danger py-2">واحد 70 متری در شهرک ولیعصر اصفهان</small>
+                                            <small class="d-block text-success py-2">خریدوفروش خانه وآپارتمان </small>
+                                            <small class="d-block text-muted py-2"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                سه راه سیمین خ جانبازان خ سعادت کازرونی
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <a href="#" class="trash"><i class="fa fa-trash align-middle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </a>
+                            <a href="#">
+                                <div class="d-flex justify-content-between align-items-center border-bottom py-2 info-user2">
+                                    <div class="d-flex align-items-center">
+                                        <img src="img/shiraz2.jpg" alt="agahi_mordealaghe" class="img-fluid ml-lg-2" style="border-radius: 15px; width: 10em">
+                                        <div>
+                                            <small class="d-block text-center text-dark"> اصفهان</small>
+                                            <small class="d-block text-danger py-2">واحد 70 متری در شهرک ولیعصر اصفهان</small>
+                                            <small class="d-block text-success py-2">خریدوفروش خانه وآپارتمان </small>
+                                            <small class="d-block text-muted py-2"><i class="fa fa-map-marker" aria-hidden="true"></i>
+                                                سه راه سیمین خ جانبازان خ سعادت کازرونی
+                                            </small>
+                                        </div>
+
+                                    </div>
+                                    <div>
+                                        <a href="#" class="trash"><i class="fa fa-trash align-middle" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+
+                                </div>
+                            </a>
+                        </div>
+                        <div class="card-footer text-center border-0 info-user-footer">
+                            <a href="#" class="font-md" >حذف و ویرایش علاقه مندی ها</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane fade   " id="etelate_shakhsi">
+                      <div class="card border-0 etelate_shakhsi">
+                          <div class="card-header bg-transparent border-0 pt-0">
+                              <p class="mb-0 px-2 py-1 font-md">اطلاعات شخصی</p>
+
+                          </div>
+                          <div class="card-body">
+                              <div class="size">
+                                  <form action="">
+                                      <div class="row">
+                                          <div class="form-group col-12 col-lg-6">
+                                              <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                                      <div class="input-group-text bg-white ">
+                                                          <small class="text-muted font-md">نام:</small>
+                                                      </div>
+                                                  </div>
+                                                  <input type="text" class="form-control " style="font-size: 13px" value="امین">
+                                              </div>
+                                          </div>
+                                          <div class="form-group col-12 col-lg-6">
+                                              <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                                      <div class="input-group-text bg-white ">
+                                                          <small class="text-muted font-md">نام خانوادگی:</small>
+                                                      </div>
+                                                  </div>
+                                                  <input type="text" class="form-control " style="font-size: 13px" placeholder="پوربابایی">
+                                              </div>
+                                          </div>
+                                          <div class="form-group col-12 col-lg-6">
+                                              <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                                      <div class="input-group-text bg-white ">
+                                                          <small class="text-muted font-md">ایمیل:</small>
+                                                      </div>
+                                                  </div>
+                                                  <input type="text" class="form-control " style="font-size: 13px" value="amintkd031@gmail.com">
+                                              </div>
+                                          </div>
+                                          <div class="form-group col-12 col-lg-6">
+                                              <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                                      <div class="input-group-text bg-white ">
+                                                          <small class="text-muted font-md">تلفن همراه:</small>
+                                                      </div>
+                                                  </div>
+                                                  <input type="text" class="form-control " style="font-size: 13px" value="09131234567">
+                                              </div>
+                                          </div>
+                                          <div class="form-group col-12 col-lg-6">
+                                              <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                                      <div class="input-group-text bg-white ">
+                                                          <small class="text-muted font-md">کشور:</small>
+                                                      </div>
+                                                  </div>
+                                                  <input type="text" class="form-control " style="font-size: 13px" value="ایران">
+                                              </div>
+                                          </div>
+                                          <div class="form-group col-12 col-lg-6">
+                                              <div class="input-group">
+                                                  <div class="input-group-prepend">
+                                                      <div class="input-group-text bg-white ">
+                                                          <small class="text-muted font-md">شهر:</small>
+                                                      </div>
+                                                  </div>
+                                                  <input type="text" class="form-control " style="font-size: 13px" value="اصفهان">
+                                              </div>
+
+                                          </div>
+                                          <div class="col-12 text-center py-2  btn btn-block  sabte_etelat">
+                                             <button class="btn btn-block hvr-pulse-shrink"><a href="#">
+                                                  ثبت اطلاعات <i class="fa fa-chevron-left align-middle" aria-hidden="true"></i></a></button>
+
+                                          </div>
+
+                                      </div>
+
+                                  </form>
+
+                              </div>
+
+                          </div>
+
+                      </div>
+
+                 </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</main>
+<footer>
+<div class="container">
+    <div class="row">
+        <div class="col-12 col-lg-6 contecting">
+         <img src="img/155%20-%20Copy%20(3).jpg" class="img-fluid">
+            <p class="font-md">
+             ازشمال تاجنوب از شرق به غرب با یه اشاره میتونی خونه ببینی
+            <br>
+            آگهی خریدو فروش
+            <br>
+           رهن و اجاره
+            <br>
+             اجاره کوتاه مدت
+            <br>
+             تجاری اداری مسکونی
+             <br>
+            پانسیون مغازه ویلا اداره
+             </p>
+            <div class="d-flex flex-column flex-lg-row">
+                <div class="card bg-transparent border-0 flex-grow-1">
+                    <small class="text-muted d-block">
+                        ساعت کاری شرکت از شنبه تا چهارشنبه
+                    </small>
+                    <small class="text-muted d-block">
+                      ساعت 8:30الی 18:00
+                    </small>
+                </div>
+
+                <div class="card bg-transparent border-0  flex-grow-1">
+                    <small class="text-muted d-block">
+                        ساعت کاری شرکت پنج شنبه ها
+                    </small>
+                    <small class="text-muted d-block">
+                        ساعت 8:30الی 13:00
+                    </small>
+                </div>
+
+            </div>
+            <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center mt-3">
+               <a href="#" class="text-white">
+                   <div class="card messanger ">
+                      <div class="card-body d-flex align-items-center py-2 ">
+                        <span class="text-white"><i class="fab fa-instagram " style="font-size: 25px" aria-hidden="true"></i> </span>
+                          <p class="mb-0 mr-1 font-md ">اینستاگرام سایت آگهی املاک سوئیت</p>
+                      </div>
+                   </div>
+
+               </a>
+            </div>
+        </div>
+        <div class="col-12 col-lg-3 footer_menue " style="margin-top: 25px">
+
+            <a href="#" class="d-block"> اخبارو مقالات  </a>
+            <a href="#" class="d-block"> سوالات متداول   </a>
+            <a href="#" class="d-block"> دربارما    </a>
+            <a href="#" class="d-block"> ارتباط با ما  </a>
+
+        </div>
+        <div class="col-12 col-lg-3 footer_menu_left">
+            <div class="d-flex flex-column flex-lg-row justify-content-center ">
+                <a href="#" class="flex-grow-1">
+                    <div class="card border-0 enamad">
+                        <div class="card-body p-1">
+                            <img src="img/Group 706.png" class="img-fluid d-block mx-auto" alt="logoenamad">
+                            <small class="text-center text-muted mt-2 d-block"> نماد اعتماد الکترونیکی </small>
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="flex-grow-1 mr-3">
+                    <div class="card border-0 enamad ">
+                        <div class="card-body p-1">
+                            <img src="img/Group 706.png" class="img-fluid d-block mx-auto" alt="logoenamad">
+                            <small class="text-center text-muted mt-2 d-block"> نماد اعتماد الکترونیکی </small >
+                        </div>
+                    </div>
+                </a>
+                <a href="#" class="flex-grow-1 mr-3">
+                    <div class="card border-0 enamad">
+                        <div class="card-body p-1">
+                            <img src="img/Group 706.png" class="img-fluid d-block mx-auto" alt="logoenamad">
+                            <small class="text-center text-muted mt-2 d-block"> نماد اعتماد الکترونیکی </small >
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+    <div class="footer-bottom text-center py-2 text-white">
+        <small>
+            کلیه حقوق اين سایت متعلق به شرکت سایت آگهی املاک اینترنتی سوئیت محفوظ است.
+
+
+        </small>
+    </div>
+</footer>
+</body>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/swiper.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/slick.min.js"></script>
+<script src="js/all.min.js"></script>
+<script src="js/main.js"></script>
+
+</html>

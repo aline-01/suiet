@@ -14,6 +14,10 @@ if (!isset($_COOKIE["user_access"])) {
 
 $this_user = $functions->get_user_by_id($user_id);
 
+if (isset($_POST["change_information"])) {
+    echo "<h1>your want to change your information</h1>";
+}
+
 ?>
 <?php 
 /**
@@ -340,7 +344,7 @@ get_header();
                           </div>
                           <div class="card-body">
                               <div class="size">
-                                  <form action="">
+                                  <form action="http://localhost:2211/?page_id=30" method="POST">
                                       <div class="row">
                                           <div class="form-group col-12 col-lg-6">
                                               <div class="input-group">
@@ -361,17 +365,7 @@ get_header();
                                                   </div>
                                                   <input type="text" class="form-control " style="font-size: 13px" placeholder="پوربابایی">
                                               </div>
-                                          </div>
-                                          <div class="form-group col-12 col-lg-6">
-                                              <div class="input-group">
-                                                  <div class="input-group-prepend">
-                                                      <div class="input-group-text bg-white ">
-                                                          <small class="text-muted font-md">ایمیل:</small>
-                                                      </div>
-                                                  </div>
-                                                  <input type="text" class="form-control " style="font-size: 13px" value="amintkd031@gmail.com">
-                                              </div>
-                                          </div>
+                                          </div>   
                                           <div class="form-group col-12 col-lg-6">
                                               <div class="input-group">
                                                   <div class="input-group-prepend">
@@ -386,17 +380,17 @@ get_header();
                                               <div class="input-group">
                                                   <div class="input-group-prepend">
                                                       <div class="input-group-text bg-white ">
-                                                          <small class="text-muted font-md">کشور:</small>
+                                                          <small class="text-muted font-md">شهر:</small>
                                                       </div>
                                                   </div>
-                                                  <input type="text" class="form-control " style="font-size: 13px" value="ایران">
+                                                  <input type="text" class="form-control " style="font-size: 13px" value="اصفهان">
                                               </div>
                                           </div>
                                           <div class="form-group col-12 col-lg-6">
                                               <div class="input-group">
                                                   <div class="input-group-prepend">
                                                       <div class="input-group-text bg-white ">
-                                                          <small class="text-muted font-md">شهر:</small>
+                                                          <small class="text-muted font-md">استان:</small>
                                                       </div>
                                                   </div>
                                                   <input type="text" class="form-control " style="font-size: 13px" value="اصفهان">
@@ -404,7 +398,7 @@ get_header();
 
                                           </div>
                                           <div class="col-12 text-center py-2  btn btn-block  sabte_etelat">
-                                             <button class="btn btn-block hvr-pulse-shrink"><a href="#">
+                                             <button name="change_information" class="btn btn-block hvr-pulse-shrink"><a href="#">
                                                   ثبت اطلاعات <i class="fa fa-chevron-left align-middle" aria-hidden="true"></i></a></button>
 
                                           </div>

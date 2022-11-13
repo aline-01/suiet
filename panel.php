@@ -2,6 +2,16 @@
 include("includes/db_config/db_connection.php");
 include("includes/functions.php");
 
+if (!isset($_COOKIE["user_access"])) {
+    $functions->header_to("/");
+}else {
+    $user_id = $_COOKIE["user_access"];
+}
+
+
+
+
+
 
 ?>
 <?php 

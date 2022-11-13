@@ -15,7 +15,36 @@ if (!isset($_COOKIE["user_access"])) {
 $this_user = $functions->get_user_by_id($user_id);
 
 if (isset($_POST["change_information"])) {
-    echo "<h1>your want to change your information</h1>";
+    $errors = array();
+
+    $fname_lname = $_POST["new_name"];
+    if (empty($fname_lname)) {
+        array_push($errors,"نام و نام خانوادگی را وارد کنید");
+    }else if (strlen($fname_lname) > 70) {
+        array_push($errors,"نام و نام خانوادگی خیلی طولانی است");
+    }else if (strlen($fname_lname) < 4) {
+        array_push($errors,"نام و نام خانوادگی خیلی کوتاه است");
+    }
+
+    var_dump($fname_lname);
+
+    $phone_number = $_POST["new_number"];
+    if (empty($phone_number)) {
+        array_push($errors,"شماره تلفن را وارد کنید");
+    }else if (strlen($phone_number) > 11) {
+        array_push($errors,"شماره تلفن معتبر را وارد کنید");
+    }else {
+        if ($phone_number == $this_user[0]["phone_number"]) {
+            //do nothing
+        }else {
+            $is_uniq_number = $functions->check_uniq_number($phone_number);
+            if (!$is_uniq_number) {
+                array_push($errors,"این شماره از قبل ثبت شده");
+            }
+        }
+    }
+
+
 }
 
 ?>
@@ -353,19 +382,9 @@ get_header();
                                                           <small class="text-muted font-md">نام:</small>
                                                       </div>
                                                   </div>
-                                                  <input type="text" class="form-control " style="font-size: 13px" value="امین">
+                                                  <input type="text" value="<?php echo $this_user[0]["fname_lname"]; ?>" name="new_name" class="form-control " style="font-size: 13px" value="امین">
                                               </div>
                                           </div>
-                                          <div class="form-group col-12 col-lg-6">
-                                              <div class="input-group">
-                                                  <div class="input-group-prepend">
-                                                      <div class="input-group-text bg-white ">
-                                                          <small class="text-muted font-md">نام خانوادگی:</small>
-                                                      </div>
-                                                  </div>
-                                                  <input type="text" class="form-control " style="font-size: 13px" placeholder="پوربابایی">
-                                              </div>
-                                          </div>   
                                           <div class="form-group col-12 col-lg-6">
                                               <div class="input-group">
                                                   <div class="input-group-prepend">
@@ -373,7 +392,7 @@ get_header();
                                                           <small class="text-muted font-md">تلفن همراه:</small>
                                                       </div>
                                                   </div>
-                                                  <input type="text" class="form-control " style="font-size: 13px" value="09131234567">
+                                                  <input type="text" value="<?php echo $this_user[0]["phone_number"]; ?>" name="new_number" class="form-control " style="font-size: 13px" value="09131234567">
                                               </div>
                                           </div>
                                           <div class="form-group col-12 col-lg-6">
@@ -395,9 +414,19 @@ get_header();
                                                   </div>
                                                   <input type="text" class="form-control " style="font-size: 13px" value="اصفهان">
                                               </div>
-
-                                          </div>
-                                          <div class="col-12 text-center py-2  btn btn-block  sabte_etelat">
+                                            </div>
+                                            <div class="col-12 text-center py-2  btn btn-block  sabte_etelat">
+                                        <?php if (isset($_POST["change_information"]) && !empty($errors)) {  ?> 
+                                            <div class="errors" >
+                                                <ul class="navbar-nav text-center pr-0 navbar-top">
+                                                    <?php 
+                                                        foreach($errors as $err) {
+                                                            echo "<li>{$err}</li>";
+                                                        }
+                                                    ?>
+                                                </ul>
+                                              </div><br>
+                                        <?php } ?>
                                              <button name="change_information" class="btn btn-block hvr-pulse-shrink"><a href="#">
                                                   ثبت اطلاعات <i class="fa fa-chevron-left align-middle" aria-hidden="true"></i></a></button>
 

@@ -6,12 +6,13 @@ if (!isset($_COOKIE["user_access"])) {
     $functions->header_to("/");
 }else {
     $user_id = $_COOKIE["user_access"];
+    $accepted_user = $functions->check_user_accept($user_id);
+    if (!$accepted_user) {
+        $functions->header_to("/");
+    }
 }
 
-
-
-
-
+$this_user = $functions->get_user_by_id($user_id);
 
 ?>
 <?php 
@@ -28,7 +29,7 @@ get_header();
             <div class="card border-0 mb-4 profile">
                 <div class="card-body text-center ">
                     <img src="img/Group 1143.png" class="img-fluid mx-auto d-block" >
-                   <small class="d-block mt-3">امین پوربابایی</small>
+                   <small class="d-block mt-3"><?php echo $this_user[0]["fname_lname"] ?></small>
                 </div>
                <div class="card-footer text-center d-flex justify-content-between align-items-center border-0 shadow-none py-3">
                    <a href="#"  class="border-left px-2 font-sm">تغییر رمز عبور</a>
@@ -94,16 +95,16 @@ get_header();
                                     <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3 user-info">
                                         <div>
                                             <p class="font-sm">نام و نام خانوادگی:</p>
-                                            <p class="font-md">امین پوربابایی</p>
-                                        </div>
-                                        <div>
-                                            <p class="font-sm">آدرس ایمیل:</p>
-                                            <p class="font-md">amintkd031@gmail.com</p>
+                                            <p class="font-md"><?php echo $this_user[0]["fname_lname"]; ?></p>
                                         </div>
                                         <div>
                                             <p class="font-sm">شماره تلفن همراه:</p>
-                                            <p class="font-md">09131234567</p>
+                                            <p class="font-md"><?php echo $this_user[0]["phone_number"]; ?></p>
                                         </div>
+                                        <!-- <div>
+                                            <p class="font-sm">آدرس ایمیل:</p>
+                                            <p class="font-md">amintkd031@gmail.com</p>
+                                        </div> -->
 
                                     </div>
                                     <div class="d-flex justify-content-between align-items-center border-bottom pb-3 mb-3 user-info">
@@ -113,11 +114,11 @@ get_header();
                                         </div>
                                         <div>
                                             <p class="font-sm">تاریخ عضویت :</p>
-                                            <p class="font-md">1 تیر 1401</p>
+                                            <p class="font-md"><?php echo $this_user[0]["date_register"]; ?></p>
                                         </div>
                                         <div>
                                             <p class="font-sm">تاریخ آخرین ورود :</p>
-                                            <p class="font-md">16 تیر 1401 </p>
+                                            <p class="font-md"><?php echo $this_user[0]["last_login"]; ?></p>
                                         </div>
 
                                     </div>
@@ -139,7 +140,7 @@ get_header();
 
                                 </div>
                                 <div class="card-footer border-0 py-3  text-center info-user-footer">
-                                    <a href="#" class="font-md" >ویرایش اطلاعات شخصی</a>
+                                    <a href="http://localhost:2211/?page_id=30#etelate_shakhsi" class="font-md" >ویرایش اطلاعات شخصی</a>
 
                                 </div>
 

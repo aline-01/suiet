@@ -67,6 +67,18 @@ class functions {
         $query = $connection->prepare($sql);
         $query->execute();
     }
+    public function check_user_accept($user_id) {
+        global $connection;
+        $sql = "select * from users where id = ? && accept = 1";
+        $query = $connection->prepare($sql);
+        $query->bindValue(1,$user_id);
+        $query->execute();
+        if ($query->rowCount() > 0) {
+            return true;
+        }else {
+            return false;
+        }
+    }
 
 }
 

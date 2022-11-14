@@ -65,7 +65,7 @@ get_header();
                 </div>
                <div class="card-footer text-center d-flex justify-content-between align-items-center border-0 shadow-none py-3">
                    <a href="http://localhost:2211/?page_id=34"  class="border-left px-2 font-sm">تغییر رمز عبور</a>
-                   <a href="#" class="font-sm"  style="margin-left: 30px " > خروج از حساب</a>
+                   <a href="http://localhost:2211/?page_id=36&preview=true" class="font-sm"  style="margin-left: 30px " > خروج از حساب</a>
 
                </div>
             </div>

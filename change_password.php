@@ -2,6 +2,51 @@
 include("includes/db_config/db_connection.php");
 include("includes/functions.php");
 
+$this_user = $functions->get_user_by_id($_COOKIE["user_access"]);
+
+if (isset($_POST["submit"])) {
+    $errors = array();
+
+    $current_password = $_POST["current_password"];
+    if (empty($current_password)) {
+        array_push($errors,"رمز عبور فعلی را وارد کنید");
+    }else {
+        $hashed_password = $functions->hash_password($current_password);
+        $sql_true_user = "select * from users where phone_number = ? && password = ?";
+        $query_true_user = $connection->prepare($sql_true_user);
+        $query_true_user->bindValue(1,$this_user[0]["phone_number"]);
+        $query_true_user->bindValue(2,$hashed_password);
+        $query_true_user->execute();
+        if ($query_true_user->rowCount() > 0) {
+            //do nothing
+        }else {
+            array_push($errors,"رمز عبور فعلی نادرست است");
+        }
+    }
+
+    $new_password = $_POST["new_password"];
+    if (empty($new_password)) {
+        array_push($errors,"رمز عبور جدید را وارد کنید");
+    }else if (strlen($new_password) < 8) {
+        array_push($errors,"رمز عبور خیلی طولانی است");
+    }else {
+        $hashed2_password = $functions->hash_password($new_password);
+    }
+
+    if (empty($errors)) {
+        $sql_update = "update users set password = ? where id = ?";
+        $query_update = $connection->prepare($sql_update);
+        $query_update->bindValue(1,$hashed2_password);
+        $query_update->bindValue(2,$this_user[0]["id"]);
+        $query_update->execute();
+        if ($query_update->rowCount() > 0) {
+            $functions->header_to("http://localhost:2211/?page_id=30");
+        }else {
+            array_push($errors,"مشکلی وجود دارد، دوباره امتحان کنید");
+        }
+    }
+
+}
 
 ?>
 <?php
@@ -21,26 +66,24 @@ include("includes/functions.php");
                     <div class="card-body px-5">
                         <img src="img/155 - Copy (3).jpg" class="img-fluid mx-auto d-block" alt="logo_suiet">
                         <small class="text-muted text-center d-block">ورود به سایت آگهی املاک سوئیت</small>
-                        <form class="shadow-none mt-5 link-dl" action="http://localhost:2211/?page_id=25" method="POST">
+                        <form class="shadow-none mt-5 link-dl" action="http://localhost:2211/?page_id=34" method="POST">
                             <br>
-                          <div class="input_group">
-                              <div class="input-group-prepend">
-                                  <div class="input-group-text">
-                                      <small class="text-muted">شماره موبایل</small>
-                                  </div>
-                                  <input value="<?php if (isset($_SESSION["user_login"])) { echo $_SESSION["user_login"][0]; } ?>" class="form-control" name="phone_number" style="font-size: 13px;box-shadow: none " type="text" placeholder="شماره موبایل خود را وارد کنید" >
-                                </div>
-                                
-                          </div>
                           <div class="input_group my-3">
 
                               <div class="input-group-prepend">
                                   <div class="input-group-text ">
-                                      <small class="text-muted">رمز عبور</small>
+                                      <small class="text-muted">رمز عبور فعلی</small>
                                   </div>
-                                  <input value="<?php if (isset($_SESSION["user_login"])) { echo $_SESSION["user_login"][1]; } ?>" class="form-control" name="password" style="font-size: 13px;box-shadow: none " type="password" placeholder="رمز عبور خود را وارد کنید.." >
+                                  <input class="form-control" name="current_password" style="font-size: 13px;box-shadow: none " type="password" placeholder="رمز عبور خود را وارد کنید.." >
+                              </div><br> 
+                              <div class="input-group-prepend">
+                                  <div class="input-group-text ">
+                                      <small class="text-muted">رمز عبور جدید</small>
+                                  </div>
+                                  <input class="form-control" name="new_password" style="font-size: 13px;box-shadow: none " type="password" placeholder="رمز عبور خود را وارد کنید.." >
                               </div>
-                          </div>
+
+                            </div>
 
                           <a href="#">رمز عبور خود را فراموش کرده اید؟!</a>
                           <?php if (isset($_POST["submit"]) && !empty($errors)) { ?>
@@ -54,23 +97,10 @@ include("includes/functions.php");
                               </ul>
                           </div>
                           <?php } ?>
-                          <button class="btn btn-block mt-4 hvr-pulse-grow" name="submit">ثبت نام در سایت املاک</button>
-                          <div class="forget mt-3">
-                              <div class="custom-control custom-checkbox ">
-                                  <input name="remberme" type="checkbox" class="custom-control-input" id="customcheak5">
-                                  <label class="custom-control-label " style="padding-right: 20px" for="customcheak5">
-                                      <small class="text-muted font-sm " >مرابه خاطربسپار</small>
-                                  </label>
-
-                              </div>
-                          </div>
-
+                          <button class="btn btn-block mt-4 hvr-pulse-grow" name="submit">تغییر رمز عبور </button>
                       </form>
                  </div>
-                 <div class="card-footer d-flex justify-content-center align-items-center ">
-                     <p class="font-md ">هنوز در سایت آگهی املاک سوئیت ثبت نام نکردی؟!</p>
-                     <a href="http://localhost:2211/?page_id=6" class="text-success font-sm mb-4 mt-2 mr-2 align-middle"> ثبت نام در سایت آگهی املاک سوئیت</a>
-                 </div>
+               
              </div>
 
          </div>

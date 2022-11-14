@@ -26,7 +26,6 @@ if (isset($_POST["change_information"])) {
         array_push($errors,"نام و نام خانوادگی خیلی کوتاه است");
     }
 
-    var_dump($fname_lname);
 
     $phone_number = $_POST["new_number"];
     if (empty($phone_number)) {
@@ -65,7 +64,7 @@ get_header();
                    <small class="d-block mt-3"><?php echo $this_user[0]["fname_lname"] ?></small>
                 </div>
                <div class="card-footer text-center d-flex justify-content-between align-items-center border-0 shadow-none py-3">
-                   <a href="#"  class="border-left px-2 font-sm">تغییر رمز عبور</a>
+                   <a href="http://localhost:2211/?page_id=34"  class="border-left px-2 font-sm">تغییر رمز عبور</a>
                    <a href="#" class="font-sm"  style="margin-left: 30px " > خروج از حساب</a>
 
                </div>

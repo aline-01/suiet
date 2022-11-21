@@ -63,6 +63,8 @@ function suiet_add_theme_scripts() {
     wp_enqueue_script('slick',get_theme_file_uri('/assets/js/slick.min.js'),['jquery'],'SUIET_VERSION_2',true);
     wp_enqueue_script('font-awesome',get_theme_file_uri('/assets/js/all.min.js'),[],'5.11.2',true);
     wp_enqueue_script('main',get_theme_file_uri('/assets/js/main.js'),['jquery','slick','bootstrap','swiper'],'SUIET_VERSION_2',true);
+    wp_enqueue_script('city',get_theme_file_uri('/assets/js/city.js'),['jquery'],'SUIET_VERSION_2',true);
+
 
 
 

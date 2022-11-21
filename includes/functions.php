@@ -37,7 +37,7 @@ class functions {
     }
     public function safe_input($input) {
         $lv1 = htmlentities($input);
-        $lv2 = addslashes($lv2);
+        $lv2 = addslashes($lv1);
         $lv3 = htmlspecialchars($lv2);
         return $lv3;
     }
@@ -78,6 +78,15 @@ class functions {
         }else {
             return false;
         }
+    }
+    public function hash_admin_password($password) {
+        $salt = "9#h!is";
+        $s_password = $password . $salt;
+        $hash_password = hash("sha256",$s_password);
+        return $hash_password;
+    }
+    public function check_admin_permision() {
+        
     }
 
 }

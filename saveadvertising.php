@@ -37,8 +37,36 @@ if (isset($_POST["submit"])) {
 
     $pathroom = $_POST["pathroom"];
     if (empty($pathroom)) {
-        
+        $pathroom = 0;
     }
+
+    $toilets = $_POST["toilets"];
+    if (empty($toilets)) {
+        $toilets = 0;
+    }
+
+    $elevator = $_POST["elevator"];
+    if (empty($elevator) || $elevator == "آسانسور") {
+        $elevator = 0;
+    }
+
+    $parking = $_POST["parking"];
+    if (empty($parking) || $parking == "پارکینگ") {
+        $parking = 0;
+    }
+
+    $store = $_POST["store"];
+    if (empty($store) || $store == "انبار") {
+        $store = 0;
+    }
+
+    $created_year = $_POST["created_year"];
+    if (empty($created_year)) {
+        array_push($errors,"سال ساخت رو وارد کنید");
+    }
+
+    
+
 
 
 }
@@ -131,8 +159,6 @@ get_header();
                                 
                                 
                                 
-                                
-                                
                             <form class="mt-4 form-send" action="http://localhost:2211/?page_id=53" method="POST">    
                                 <div class="row">
                                     <div class=" form-group col-12 col-lg-6">
@@ -203,19 +229,19 @@ get_header();
                                     <input type="tel" class="form-control" placeholder="تعداد حمام" name="pathroom">
                                 </div>
                                 <div class=" form-group col-12 col-lg-6">
-                                    <input type="tel" class="form-control" placeholder="تعداد سرویس بهداشتی ">
+                                    <input type="tel" class="form-control" placeholder="تعداد سرویس بهداشتی " name="toilets">
                                 </div>
                             </div>
                             <div class="row">
 
                                 <div class=" form-group col-12 col-lg-6">
-                                    <input type="tel" class="form-control meterage_f" placeholder="متراژ ">
+                                    <input type="tel" class="form-control meterage_f" placeholder="متراژ " name="metrage">
                                 </div>
                                 <div class=" form-group col-12 col-lg-6">
-                                    <select class="custom-select ml-lg-3 mb-2 mb-lg-0">
+                                    <select class="custom-select ml-lg-3 mb-2 mb-lg-0" name="elevator">
                                         <option selected> آسانسور</option>
                                         <option value="1"> دراد</option>
-                                        <option value="2"> ندارد</option>
+                                        <option value="0"> ندارد</option>
 
                                     </select>
                                 </div>
@@ -223,19 +249,19 @@ get_header();
                             <div class="row">
 
                                 <div class=" form-group col-12 col-lg-6">
-                                    <select class="custom-select ml-lg-3 mb-2 mb-lg-0">
+                                    <select class="custom-select ml-lg-3 mb-2 mb-lg-0" name="parking">
                                         <option selected> پارکینگ</option>
                                         <option value="1"> دراد</option>
-                                        <option value="2"> ندارد</option>
+                                        <option value="0"> ندارد</option>
 
                                     </select>
 
                                 </div>
                                 <div class=" form-group col-12 col-lg-6">
-                                    <select class="custom-select ml-lg-3 mb-2 mb-lg-0">
+                                    <select class="custom-select ml-lg-3 mb-2 mb-lg-0" name="store">
                                         <option selected> انبار</option>
                                         <option value="1"> دراد</option>
-                                        <option value="2"> ندارد</option>
+                                        <option value="0"> ندارد</option>
 
                                     </select>
                                 </div>
@@ -244,7 +270,7 @@ get_header();
                             <div class="row">
 
                                 <div class=" form-group col-12 col-lg-6">
-                                    <input type="tel" class="form-control create_year" placeholder="سال ساخت ">
+                                    <input type="tel" class="form-control create_year" placeholder="سال ساخت" name="created_year">
                                 </div>
                                 <div class=" form-group col-12 col-lg-6">
                                     <input type="tel" class="form-control met_store" placeholder="قیمت متراژ ">

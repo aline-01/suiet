@@ -85,8 +85,27 @@ class functions {
         $hash_password = hash("sha256",$s_password);
         return $hash_password;
     }
+    public function get_admin_by_id($id) {
+        global $connection;
+        $sql = "select * from admins where id = ?";
+        $query = $connection->prepare($sql);
+        $query->bindValue(1,$id);
+        $query->execute();
+        if ($query->rowCount() > 0) {
+            $result = $query->fetchAll(PDO::FETCH_ASSOC);
+            return $result;
+        }else {
+            return false;
+        }
+    }
     public function check_admin_permision() {
-        
+        if (!isset($_COOKIE["admin_access"])) {
+            $this->header_to("http://localhost:2211/?page_id=41");
+        }
+        $this_user = $this->get_admin_by_id($_COOKIE["admin_access"]);
+        if (empty($this_user)) {
+            $this->header_to("http://localhost:2211/?page_id=41");
+        }
     }
 
 }

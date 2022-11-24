@@ -15,12 +15,32 @@ if (isset($_POST["login-admin"])) {
     $password = $_POST["password"];
     if (empty($password)) {
         array_push($errors,"رمز عبور خود را وارد کنید");
+    }else {
+        $hashed_password = $functions->hash_admin_password($password);       
     }
 
     if (empty($errors)) {
         $sql_select = "select * from admins where username = ? && password = ?";
-        $query_select = $connection->prepare($sql);
-        
+        $query_select = $connection->prepare($sql_select);
+        $safe_username = $functions->safe_input($username);
+        $query_select->bindValue(1,$safe_username);
+        $query_select->bindValue(2,$hashed_password);
+        $query_select->execute();
+        $result_select = $query_select->fetchAll(PDO::FETCH_ASSOC);
+        $row_selected = $query_select->rowCount();
+        if ($row_selected > 0){
+            $name = "admin_access";
+            $value = $result_select[0]["id"];
+            if (isset($_POST["remeber_me"])) {
+                $expire = time() + (8640000 * 50);
+            }else {
+                $expire = time() + 86400;
+            }
+            setcookie($name,$value,$expire,"/");
+            $functions->header_to("http://localhost:2211/?page_id=43");
+        }else {
+            array_push($errors,"حساب کاربری پیدا نشد");
+        }
 
     }
 

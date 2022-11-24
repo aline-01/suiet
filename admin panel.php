@@ -1,13 +1,19 @@
 <?php 
-
 include("includes/db_config/db_connection.php");
 include("includes/functions.php");
+$functions->check_admin_permision();
+
+$id = $_COOKIE["admin_access"];
+$this_admin = $functions->get_admin_by_id($id);
+
+?>
+<?php 
+
 get_header();
 // http://localhost:2211/?page_id=43
 /**
  * template name: admin_panel
  */
-
 
 ?>
 <main style="margin-top: 230px">
@@ -19,11 +25,11 @@ get_header();
                         <img src="img/logo3.jpeg" class="img-fluid mx-auto " >
                         <small class="d-block mt-3">
                             پنل مدیریت سایت:
-                            امین پوربابایی
+                            <?php echo $this_admin[0]["username"]; ?>
                         </small>
                     </div>
                     <div class="card-footer bg-white  text-center   align-items-center border-0  " style="margin-right: 24px">
-                        <a href="#" class="font-sm text-danger  "  style="margin-left: 30px  " > خروج از حساب</a>
+                        <a href="http://localhost:2211/?page_id=51" class="font-sm text-danger  "  style="margin-left: 30px  " > خروج از حساب</a>
                     </div>
                 </div>
                 <div class="card border-0 profile-side">

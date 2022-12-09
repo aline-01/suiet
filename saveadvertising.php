@@ -65,9 +65,17 @@ if (isset($_POST["submit"])) {
         array_push($errors,"سال ساخت رو وارد کنید");
     }
 
+    $metrage_price = $_POST["metrage_price"];
+    if (empty($metrage_price)) {
+        array_push($errors,"قیمت متراژ را وارد کنید");
+    }
+
+    $moterage_price = $_POST["mortgage_price"];
+    if (empty($moterage_price)) {
+        array_push($errors,"قیمت رهن را وارد کنید");
+    }
+
     
-
-
 
 }
 
@@ -273,19 +281,19 @@ get_header();
                                     <input type="tel" class="form-control create_year" placeholder="سال ساخت" name="created_year">
                                 </div>
                                 <div class=" form-group col-12 col-lg-6">
-                                    <input type="tel" class="form-control met_store" placeholder="قیمت متراژ ">
+                                    <input type="tel" class="form-control met_store" placeholder="قیمت متراژ" name="metrage_price">
                                 </div>
                             </div>
                             <div class="row">
 
                                 <div class=" form-group col-12 col-lg-6 rhen_price">
                                     <p>قیمت رهن :</p>
-                                    <input type="tel" class="form-control store_s"
+                                    <input type="tel" name="mortgage_price" class="form-control store_s"
                                            placeholder="به طور مثال: رهن 50 میلیون تومان">
                                 </div>
                                 <div class=" form-group col-12 col-lg-6  mount_price">
                                     <p>قیمت ماهیانه اجاره:</p>
-                                    <input type="tel" class="form-control store_ag"
+                                    <input type="tel" name="mount_price" class="form-control store_ag"
                                            placeholder="به طور مثال: ماهی 20 میلیون تومان  ">
                                 </div>
                             </div>

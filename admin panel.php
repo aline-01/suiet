@@ -90,18 +90,35 @@ get_header();
                                     </tr>
                                     </thead>
                                     <tbody>
+                                <?php 
+                                    $user_advertising = $functions->get_all_advertising();
+                                    $coulm_number = 1;
+                                    foreach($user_advertising as $advr) {
+                                        $this_user = $functions->get_user_by_id($advr["user_sender"]);
+                                ?>
                                     <tr class="" style="font-size: 12px">
-                                        <td>1</td>
-                                        <td>su-235489534</td>
-                                        <td>امین پوربابایی</td>
-                                        <td >09131234567</td>
+                                        <td><?php echo $coulm_number; ?></td>
+                                        <td><?php echo $advr["rand_number"]; ?></td>
+                                        <td><?php echo $this_user[0]["fname_lname"]; ?></td>
+                                        <td ><?php echo $this_user[0]["phone_number"]; ?></td>
 
                                         <td>20هزارتومان</td>
                                         <td class="text-success">پرداخت شده</td>
-                                        <td class="text-success">تایید</td>
-                                        <td><a href="receive.html">نمایش</a></td>
+                                        <?php if ($advr["accepted"] == "accept") { ?>
+                                            <td class="text-success">تایید</td>
+                                        <?php }else if ($advr["accepted"] == "wating") { ?>
+                                            <td class="text-warning">درحال بررسی</td>
+                                        <?php }else { ?>
+                                            <td class="text-danger">تایید نشد</td>
+                                        <?php } ?>
+                                        <td><a href="http://localhost:2211/?page_id=45&id=<?php echo $advr["id"]; ?>">نمایش</a></td>
                                     </tr>
-                                    <tr class="" style="font-size: 12px">
+                                <?php 
+                                        $coulm_number+=1;
+                                    }
+                                    
+                                ?>
+                                    <!-- <tr class="" style="font-size: 12px">
                                         <td>2</td>
                                         <td>su-235489534</td>
                                         <td>امین پوربابایی</td>
@@ -133,7 +150,7 @@ get_header();
                                         <td class="text-success">پرداخت شده</td>
                                         <td class="text-success">تایید</td>
                                         <td><a href="#">نمایش</a></td>
-                                    </tr>
+                                    </tr> -->
                                     </tbody>
 
                                 </table>

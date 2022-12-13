@@ -1,6 +1,7 @@
 <?php
 include("includes/db_config_db_connection.php");
 include("includes/functions.php");
+// we have an error here 
 if (isset($_GET["dis_cookie"])) {
     setcookie("user_access",$_COOKIE["user_access"],time() - 11000,"/");
 }

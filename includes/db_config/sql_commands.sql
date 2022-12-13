@@ -47,6 +47,8 @@ create table if not exists advertising(
    mount_price varchar(120) not null,
    house_all_price varchar(120) not null,
    options varchar(220) default "not set",
+   presale_price varchar(200) default "not set",
+   short_rental varchar(200) default "not set",
    about_house varchar(170) default "not set",
    house_description text not null,
    images1 varchar(200) not null,
@@ -71,6 +73,8 @@ create table if not exists advertising(
    images20 varchar(200) default "no_img",
    send_date varchar(150) not null,
    user_sender int(11) not null,
+   rand_number varchar(60) not null,
+   accepted varchar(60) default "waiting";
    foreign key(user_sender) references users(id),
    primary key(id)
 );

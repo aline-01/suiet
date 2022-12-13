@@ -106,7 +106,58 @@ class functions {
         if (empty($this_user)) {
             $this->header_to("http://localhost:2211/?page_id=41");
         }
+    } 
+    public function upload_image($img) {
+        if ($img["error"] == 0) {
+            $splited_name = explode(".",$img["name"]);
+            if (count($splited_name) > 2) {
+                return "unValid";      
+            }else {
+                if ($splited_name[1] == "jpg" || $splited_name[1] == "jpeg" || $splited_name[1] == "png") {
+                    //upload image on file
+                    $path = "/home/alien-01/Desktop/wordpress/wp-content/themes/suiet v2/suiet v2/images/adver-img/".$img["name"];
+                    $uploaded = move_uploaded_file($img["tmp_name"],$path);
+                    if ($uploaded) {
+                        return $path;
+                    }else {
+                        return "unValid";
+                    }
+                }else {
+                    return "unValid";
+                }
+            }
+        }else {
+            return false;
+        }
     }
+    public function make_random_number($in,$to,$count) {
+        $result_array = "";
+        for ($i = 0;$i<$count;$i+=1) {
+            $rand_int = rand($in,$to);
+            $result_array = $result_array . $rand_int;
+        }
+        return $result_array;
+    }
+
+    public function get_all_advertising() {
+        global $connection;
+        $sql = "select * from advertising";
+        $query = $connection->prepare($sql);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }
+    public function get_advertising_by_id($id) {
+        global $connection;
+        $sql = "select * from advertising where id = ?";
+        $query = $connection->prepare($sql);
+        $safe_id = $this->safe_input($id);
+        $query->bindValue(1,$safe_id);
+        $query->execute();
+        $result = $query->fetchAll(PDO::FETCH_ASSOC);
+        return $result;
+    }  
+
 
 }
 

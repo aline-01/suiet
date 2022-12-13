@@ -201,6 +201,11 @@ get_header();
                     </div>
 
                 </div>
+                <?php 
+                    $all_advertising = $functions->get_all_advertising();
+                    $colum_number = 0;
+                
+                ?>
                 <div class="tab-pane fade " id="agahiman">
                     <div class="card border-0 agahiman">
                         <div class="card-header bg-transparent pt-0">
@@ -220,16 +225,25 @@ get_header();
                               </tr>
                               </thead>
                                 <tbody>
+                            <?php foreach($all_advertising as $advertising) { ?>
+                            <?php $colum_number+=1; ?>
                                 <tr class="" style="font-size: 12px">
-                                    <td>1</td>
-                                    <td>su-235489534</td>
-                                    <td>20تیر1401</td>
-                                    <td class="text-success">تایید</td>
+                                    <td><?php echo $colum_number; ?></td>
+                                    <td><?php echo $advertising["rand_number"]; ?></td>
+                                    <td><?php echo $advertising["send_date"]; ?></td>
+                                    <?php if ($advertising["accepted"] == "accept") { ?>
+                                        <td class="text-success">تایید</td>
+                                    <?php }else if ($advertising["accepted"] == "wating") { ?>
+                                        <td class="text-warning">درحال بررسی</td>
+                                    <?php }else { ?>
+                                        <td class="text-danger">تایید نشد</td>
+                                    <?php } ?>
                                     <td>20هزارتومان</td>
                                     <td class="text-success">پرداخت شده</td>
                                     <td><a href="#">نمایش</a></td>
                                 </tr>
-                                <tr class="" style="font-size: 12px">
+                            <?php } ?>
+                                <!-- <tr class="" style="font-size: 12px">
                                     <td>2</td>
                                     <td>su-235489534</td>
                                     <td>20تیر1401</td>
@@ -255,7 +269,7 @@ get_header();
                                     <td>20هزارتومان</td>
                                     <td class="text-danger">پرداخت نشده</td>
                                     <td><a href="#">نمایش</a></td>
-                                </tr>
+                                </tr> -->
                                 </tbody>
 
                             </table>

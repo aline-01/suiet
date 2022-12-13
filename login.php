@@ -2,7 +2,7 @@
 include("includes/db_config/db_connection.php");
 include("includes/functions.php");
 session_start();
-
+var_dump(isset($_GET["adver"]));
 if (isset($_POST["submit"])) {
     $errors = array();
 
@@ -32,13 +32,21 @@ if (isset($_POST["submit"])) {
             $name = "user_access";
             $value = $result[0]["id"];
             if (isset($_POST["remberme"])) {
-                echo "<script>alert('true')</script>";
                 $expire = time() + (86400 * 14);
             }else {
                 $expire = time() + 86400;
             }
             setcookie($name,$value,$expire,"/");
-            $functions->header_to("/");
+            if (isset($_GET["adver"]) == true) {
+                $functions->header_to("http://localhost:2211/?page_id=53");
+            }else {
+                $functions->header_to("/");
+
+            }
+            
+
+            
+
         }else {
             array_push($errors,"حساب کاربری پیدا نشد");
         }
@@ -64,7 +72,7 @@ if (isset($_POST["submit"])) {
                     <div class="card-body px-5">
                         <img src="img/155 - Copy (3).jpg" class="img-fluid mx-auto d-block" alt="logo_suiet">
                         <small class="text-muted text-center d-block">ورود به سایت آگهی املاک سوئیت</small>
-                        <form class="shadow-none mt-5 link-dl" action="http://localhost:2211/?page_id=25" method="POST">
+                        <form class="shadow-none mt-5 link-dl" action="http://localhost:2211/?page_id=25<?php if (isset($_GET["adver"])) { echo "&adver"; } ?>" method="POST">
                             <br>
                           <div class="input_group">
                               <div class="input-group-prepend">
@@ -86,17 +94,22 @@ if (isset($_POST["submit"])) {
                           </div>
 
                           <a href="#">رمز عبور خود را فراموش کرده اید؟!</a>
-                          <?php if (isset($_POST["submit"]) && !empty($errors)) { ?>
                           <div class="errors" >
                               <ul class="navbar-nav text-center pr-0 navbar-top">
+                                  <?php 
+                                      if (isset($_GET["adver"])) { 
+                                          echo "<li class='nav-item mt-2 text-danger'>ابتدا وارد حساب کاربری خود شوید</li>";
+                                      }
+                                  ?>  
+                          <?php if (isset($_POST["submit"]) && !empty($errors)) { ?>
                                   <?php 
                                     foreach($errors as $err) {
                                        echo "<li class='nav-item mt-2 text-danger'>{$err}</li>";
                                     }
                                   ?>
+                              <?php } ?>
                               </ul>
                           </div>
-                          <?php } ?>
                           <button class="btn btn-block mt-4 hvr-pulse-grow" name="submit">ثبت نام در سایت املاک</button>
                           <div class="forget mt-3">
                               <div class="custom-control custom-checkbox ">

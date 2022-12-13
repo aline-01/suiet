@@ -676,5 +676,7 @@ footer{
     display: none !important;
 
 }
-
+.uploadimage{
+    background-color: #10b83f !important; 
+}
 /*# sourceMappingURL=style.css.map */
